@@ -20,9 +20,12 @@ coil_table <- read_csv(file = '~/Desktop/Columbia DA Bootcamp/UNIT 5 - ADVANCED 
 head(coil_table)
 
 ## Create a total_summary dataframe using the summarize() to get the mean, median, variance, and std of the suspension coil's PSI column
+total_summary <- coil_table %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance = var(PSI), SD = sd(PSI))
+View(total_summary)
 
 ## Create a lot_summary dataframe using group_by() and summarize() to group each manufacturing lot
-
+lot_summary <- coil_table %>% group_by(Manufacturing_Lot) %>% summarize(Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI), .groups='keep')
+View(lot_summary)
 
 # Deliverable 3 
 
