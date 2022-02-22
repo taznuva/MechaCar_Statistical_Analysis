@@ -30,5 +30,12 @@ View(lot_summary)
 # Deliverable 3 
 
 ## Use t.test() to determine if the PSI across all manufacturing lots is statistically different from population mean of 1,500 pounds/sq.inch
+t.test(log10(coil_table$PSI),mu=1500)
 
-## Write 3 more using t.test() and its subset() argument to determine if PSI for each manufacturing lot is different. 
+## Write 3 more Rscripts using t.test() and its subset() argument to determine if PSI for each manufacturing lot is different from population mean of 1,500 pounds.
+t.test(subset(coil_table, Manufacturing_Lot == 'Lot1')$PSI, mu=1500)
+t.test(subset(coil_table, Manufacturing_Lot == 'Lot2')$PSI, mu=1500)
+t.test(subset(coil_table, Manufacturing_Lot == 'Lot3')$PSI, mu=1500)
+
+
+
